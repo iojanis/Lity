@@ -1,0 +1,110 @@
+{
+  "package": {
+    "productName": "Lity",
+    "version": "1.2.0"
+  },
+  "build": {
+    "distDir": "../dist",
+    "devPath": "http://localhost:3000",
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": ""
+  },
+  "tauri": {
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "cc.lity.app",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [],
+      "externalBin": [],
+      "copyright": "",
+      "category": "DeveloperTool",
+      "shortDescription": "",
+      "longDescription": "",
+      "deb": {
+        "depends": [],
+        "useBootstrapper": false
+      },
+      "macOS": {
+        "frameworks": [],
+        "minimumSystemVersion": "",
+        "useBootstrapper": false,
+        "exceptionDomain": "",
+        "signingIdentity": null,
+        "entitlements": null
+      },
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://files.janis.io/v/cc.lity.app/versions.json"
+      ],
+      "dialog": true
+    },
+    "allowlist": {
+      "all": true
+    },
+    "windows": [
+      {
+        "title": "Lity Beta",
+        "width": 1280,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
+    "security": {
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
+    },
+    "cli": {
+      "description": "Lity CLI",
+      "longDescription": null,
+      "beforeHelp": null,
+      "afterHelp": null,
+      "args": [
+        {
+          "short": "s",
+          "name": "server",
+          "takesValue": true,
+          "description": "Server Address"
+        },
+        {
+          "short": "t",
+          "name": "token",
+          "takesValue": true,
+          "description": "Server Token"
+        },
+        {
+          "short": "v",
+          "name": "verbose",
+          "multipleOccurrences": true,
+          "description": "Verbosity level"
+        }
+      ],
+      "subcommands": {
+        "prune": {
+          "description": "Delete all local data",
+          "longDescription": null,
+          "beforeHelp": null,
+          "afterHelp": null,
+          "subcommands": null
+        }
+      }
+    }
+  }
+}
