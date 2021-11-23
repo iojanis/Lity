@@ -1,8 +1,9 @@
 {
   "name": "Lity",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "licence": "CC",
   "scripts": {
+    "build": "tauri build",
     "build:tauri": "tauri build",
     "tauri": "tauri"
   },
