@@ -1,0 +1,9 @@
+{
+  "width": 260,
+  "height": 260,
+  "decorations": false,
+  "fullscreen": false,
+  "url": "splashscreen.html",
+  "label": "splashscreen",
+  "transparent": true
+}

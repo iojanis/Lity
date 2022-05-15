@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+dist
 dist-ssr
 
 /tests/e2e/videos/
@@ -9,6 +10,7 @@ dist-ssr
 .nyc_output
 
 # local env files
+.env
 .env.local
 .env.*.local
 

@@ -1,52 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <link rel="icon" href="/favicon.ico"/>
-    <link href="/site.webmanifest" rel="manifest"/>
-    <link href="/remixicon.css" rel="stylesheet"/>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <link
+      rel="preload"
+      as="font"
+      href="/font/remixicon.woff2"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/font/remixicon.woff"
+      type="font/woff"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/font/remixicon.tff"
+      type="font/tff"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/font/remixicon.eot"
+      type="font/eot"
+      crossorigin="anonymous"
+    />
     <title>Lity</title>
-    <meta content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space." name="description">
-    <meta content="yes" name="apple-mobile-web-app-capable"/>
-    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-    <meta name="viewport" content="initial-scale=1, viewport-fit=cover, user-scalable=no, width=device-width, maximum-scale=1.0"/>
-    <meta name="description" content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space.">
-    <meta data-hid="title" name="title" content="Lity — Revisit your Thoughts, Together and in Sync">
-    <meta data-hid="og:type" name="og:type" content="website">
-    <meta data-hid="og:title" name="og:title" content="Lity — Revisit your Thoughts, Together and in Sync">
-    <meta data-hid="og:description" name="og:description" content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space.">
-    <meta data-hid="og:image" name="og:image" content="https://lity.cc/revisit.png">
-    <meta data-hid="twitter:card" name="twitter:card" content="summary_large_image">
-    <meta data-hid="twitter:type" name="twitter:type" content="website">
-    <meta data-hid="twitter:title" name="twitter:title" content="Lity — Revisit your Thoughts, Together and in Sync">
-    <meta data-hid="twitter:description" name="twitter:description" content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space.">
-    <meta data-hid="twitter:image" name="twitter:image" content="https://lity.cc/revisit.png">
-    <meta data-hid="charset" charset="utf-8">
-    <meta data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
-    <meta data-hid="apple-mobile-web-app-capable" name="apple-mobile-web-app-capable" content="yes">
-    <meta data-hid="apple-mobile-web-app-status-bar-style" name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="Lity">
-    <meta data-hid="author" name="author" content="Janis.IO">
-    <meta data-hid="og:site_name" name="og:site_name" property="og:site_name" content="Lity">
-  <script type="module" crossorigin src="/assets/index.07ad48a4.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.855e8817.js">
-  <link rel="stylesheet" href="/assets/index.26b9b614.css">
-<link rel="manifest" href="/manifest.webmanifest"></head>
-    <body>
-        <div id="app"></div>
-        
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.janis.io/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '3']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-    </body>
+    <meta content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space." name="description" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta
+      name="viewport"
+      content="initial-scale=1, viewport-fit=cover, user-scalable=no, width=device-width, maximum-scale=1.0"
+    />
+    <meta name="description" content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space." />
+    <meta data-hid="title" name="title" content="Lity — Revisit your Thoughts, Together and in Sync" />
+    <meta data-hid="og:type" name="og:type" content="website" />
+    <meta
+      data-hid="og:title"
+      name="og:title"
+      content="Lity — Revisit your Thoughts, Together and in Sync"
+    />
+    <meta
+      data-hid="og:description"
+      name="og:description"
+      content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space."
+    />
+    <meta
+      data-hid="og:image"
+      name="og:image"
+      content="https://lity.cc/revisit.png"
+    />
+    <meta
+      data-hid="twitter:card"
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta data-hid="twitter:type" name="twitter:type" content="website" />
+    <meta
+      data-hid="twitter:title"
+      name="twitter:title"
+      content="Lity — Revisit your Thoughts, Together and in Sync"
+    />
+    <meta
+      data-hid="twitter:description"
+      name="twitter:description"
+      content="Lity turns your Notes into Stars and Planets in a Galaxy of Thoughts 💭 Simply synchronize your Documents and explore together the vast possibilities of an yet empty but growing Space."
+    />
+    <meta
+      data-hid="twitter:image"
+      name="twitter:image"
+      content="https://lity.cc/revisit.png"
+    />
+    <meta data-hid="charset" charset="utf-8" />
+    <meta
+      data-hid="mobile-web-app-capable"
+      name="mobile-web-app-capable"
+      content="yes"
+    />
+    <meta
+      data-hid="apple-mobile-web-app-capable"
+      name="apple-mobile-web-app-capable"
+      content="yes"
+    />
+    <meta
+      data-hid="apple-mobile-web-app-status-bar-style"
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      data-hid="apple-mobile-web-app-title"
+      name="apple-mobile-web-app-title"
+      content="Lity"
+    />
+    <meta data-hid="author" name="author" content="Janis.IO" />
+    <meta
+      data-hid="og:site_name"
+      name="og:site_name"
+      property="og:site_name"
+      content="Lity"
+    />
+    <script type="module" crossorigin src="/assets/index.6284a58f.js"></script>
+    <link rel="stylesheet" href="/assets/index.b3f9a2cd.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body>
+    <div id="app"></div>
+    
+    <script>
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "//stats.janis.io/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "3"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+  </body>
 </html>

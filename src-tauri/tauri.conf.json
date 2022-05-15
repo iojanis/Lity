@@ -1,13 +1,13 @@
 {
   "package": {
     "productName": "Lity",
-    "version": "1.2.5"
+    "version": "1.5.0"
   },
   "build": {
     "distDir": "../dist",
-    "devPath": "http://localhost:3000",
+    "devPath": "http://localhost:3003",
     "beforeDevCommand": "yarn dev",
-    "beforeBuildCommand": ""
+    "beforeBuildCommand": "yarn build; cp splashscreen.html dist/"
   },
   "tauri": {
     "bundle": {
@@ -28,13 +28,11 @@
       "shortDescription": "",
       "longDescription": "",
       "deb": {
-        "depends": [],
-        "useBootstrapper": false
+        "depends": []
       },
       "macOS": {
         "frameworks": [],
         "minimumSystemVersion": "",
-        "useBootstrapper": false,
         "exceptionDomain": "",
         "signingIdentity": null,
         "entitlements": null
@@ -50,19 +48,23 @@
       "endpoints": [
         "https://files.janis.io/v/cc.lity.app/versions.json"
       ],
-      "dialog": true
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEUwN0VDNkY0MTcwRTM3RTAKUldUZ053NFg5TVorNExpTnV4SGZIUmRKVThubXZjRG9vTEFzeStYMkJxUmIrb1RocWs3RFRDbUgK%"
     },
     "allowlist": {
       "all": true
     },
     "windows": [
       {
-        "title": "Lity Beta",
+        "title": "Lity",
         "width": 1280,
         "height": 800,
         "resizable": true,
+        "decorations": true,
+        "transparent": false,
         "fullscreen": false,
-        "fileDropEnabled": false
+        "fileDropEnabled": false,
+        "visible": true
       }
     ],
     "systemTray": {
@@ -73,7 +75,7 @@
       "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "cli": {
-      "description": "Lity CLI",
+      "description": "Lity CLI (not working yet)",
       "longDescription": null,
       "beforeHelp": null,
       "afterHelp": null,
