@@ -2,7 +2,7 @@
 
 
 
-| INFO: Developement is paused |
+| INFO: Developement is slowed down |
 |-----------------------------------------------------------------------------------------------------------------------------|
 <img width="985" alt="Screenshot 2022-03-29 at 23 23 45" src="https://user-images.githubusercontent.com/12971934/184537211-305ae9ff-64e5-4209-a039-fcb1ae84816b.png">
 
@@ -22,7 +22,7 @@
 
 ### [Homepage](https://lity.cc)
 
-### [Article about Lity](https://janis.io/journal/causality-and-the-future) (end of May)
+### [Article about Lity](https://janis.io/journal/causality-and-the-future)
 
 ### [Running Instance](https://app.lity.cc)
 
