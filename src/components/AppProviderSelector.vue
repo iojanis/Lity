@@ -93,7 +93,7 @@
                           dark:bg-zinc-800 dark:text-white
                           bg-opacity-50
                           dark:bg-opacity-50
-                          focus:ring-2 focus:ring-gray-600
+                          focus:ring-2 focus:ring-neutral-600
                           text-lg
                           shadow-lg
                           bg-opacity-100
@@ -182,9 +182,9 @@
                             :class="[
                               i !== selectedIndex
                                 ? ' '
-                                : ' ring-3 ring-gray-600 bg-gray-300 dark:bg-gray-600 ',
+                                : ' ring-3 ring-neutral-600 bg-neutral-300 dark:bg-neutral-600 ',
                               space.id === route.params.space
-                                ? ' ring-2 ring-gray-600 bg-gray-300 dark:bg-gray-700'
+                                ? ' ring-2 ring-neutral-600 bg-neutral-300 dark:bg-neutral-700'
                                 : ' dark:bg-opacity-50 bg-opacity-50 hover:bg-opacity-30 hover:bg-zinc-100 hover:bg-opacity-50 dark:hover:bg-zinc-800 dark:hover:bg-opacity-50',
                               'relative block border rounded-lg shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none',
                             ]"
@@ -248,7 +248,7 @@
                                           dark:bg-white dark:text-white
                                           bg-opacity-50
                                           dark:bg-opacity-5
-                                          focus:ring-2 focus:ring-gray-600
+                                          focus:ring-2 focus:ring-neutral-600
                                           text-lg
                                           shadow-lg
                                           bg-opacity-1
@@ -295,7 +295,7 @@
                                           dark:bg-white dark:text-white
                                           bg-opacity-50
                                           dark:bg-opacity-5
-                                          focus:ring-2 focus:ring-gray-600
+                                          focus:ring-2 focus:ring-neutral-600
                                           text-lg
                                           shadow-lg
                                           bg-opacity-1
@@ -322,7 +322,7 @@
                                       rounded-lg
                                       p-3
                                       shadow-xl
-                                      bg-gray-700
+                                      bg-neutral-700
                                       text-white
                                       bg-opacity-50
                                     "

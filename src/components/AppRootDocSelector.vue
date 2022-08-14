@@ -2,7 +2,7 @@
   <TransitionRoot :show="state.isSelectorOpen" as="template">
     <Dialog as="div" @close="toggleSelector">
       <div
-        class="hs fixed inset-0 z-50 select-none overflow-y-auto bg-white bg-opacity-50 dark:bg-zinc-900 dark:bg-opacity-50"
+        class="hs fixed inset-0 z-50 select-none overflow-y-auto bg-white bg-opacity-50 dark:bg-neutral-900 dark:bg-opacity-50"
       >
         <div class="text-center">
           <TransitionChild as="template">
@@ -17,10 +17,12 @@
           >
           <TransitionChild as="template">
             <div
-              class="mt-16 inline-block w-full transform overflow-hidden rounded-lg bg-white p-0 pb-4 text-left align-top shadow-xl transition-all dark:bg-lityblack sm:max-w-4xl border border-1 border-black/5"
+              class="mt-16 inline-block w-full transform overflow-hidden rounded-lg p-0 pb-4 text-left align-top shadow-xl transition-all sm:max-w-4xl border border-1 border-black/5"
               :class="{
                 'bg-opacity-50 backdrop-blur-lg backdrop-filter dark:bg-black/50':
                   state.blurredInterface,
+                'bg-white dark:bg-black':
+                  !state.blurredInterface,
                 'mt-32': hasNotch(),
               }"
             >
@@ -60,19 +62,19 @@
                       tabindex="0"
                       type="text"
                       name="search"
-                      class="block h-8 w-full rounded-md border-0 bg-white bg-opacity-50 bg-opacity-100 bg-opacity-50 py-5 pl-3 pr-12 text-lg shadow-lg focus:ring-2 focus:ring-zinc-600/70 dark:bg-zinc-800 dark:bg-opacity-50 dark:text-white"
+                      class="block h-8 w-full rounded-md border-0 bg-white bg-opacity-50 bg-opacity-100 bg-opacity-50 py-5 pl-3 pr-12 text-lg shadow-lg focus:ring-2 focus:ring-blue-600/70 dark:bg-neutral-800 dark:bg-opacity-50 dark:text-white"
                     />
                     <div class="absolute inset-y-0 right-0 flex py-0.5 pr-1.5">
                       <button
                         type="button"
-                        class="relative -ml-px inline-flex items-center rounded-md p-1 pr-0 text-sm font-medium text-zinc-600 hover:opacity-50 focus:z-10 dark:text-zinc-200"
+                        class="relative -ml-px inline-flex items-center rounded-md p-1 pr-0 text-sm font-medium text-neutral-600 hover:opacity-50 focus:z-10 dark:text-neutral-200"
                         @click="toggleOnly('info')"
                       >
                         <i class="ri-information-fill text-2xl" />
                       </button>
                       <button
                         type="button"
-                        class="relative -ml-px inline-flex items-center rounded-md p-1 text-sm font-medium text-zinc-600 hover:opacity-50 focus:z-10 dark:text-zinc-200"
+                        class="relative -ml-px inline-flex items-center rounded-md p-1 text-sm font-medium text-neutral-600 hover:opacity-50 focus:z-10 dark:text-neutral-200"
                         @click="toggleSelector"
                       >
                         <i class="ri-close-circle-fill text-2xl" />
@@ -91,8 +93,8 @@
                     <!--                        items-center-->
                     <!--                        text-sm-->
                     <!--                        font-medium-->
-                    <!--                        text-zinc-900-->
-                    <!--                        dark:text-zinc-100-->
+                    <!--                        text-neutral-900-->
+                    <!--                        dark:text-neutral-100-->
                     <!--                        disabled-->
                     <!--                        flex-nowrap-->
                     <!--                        focus:z-10-->
@@ -106,9 +108,9 @@
                     <!--                    </span>-->
                     <button
                       type="button"
-                      class="relative m-1.5 ml-0.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:bg-opacity-50"
+                      class="relative m-1.5 ml-0.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-neutral-900 hover:bg-neutral-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:bg-neutral-800 dark:hover:bg-opacity-50"
                       :class="{
-                        'bg-zinc-100 ring-2 ring-zinc-600 hover:bg-zinc-200 hover:bg-opacity-100 dark:bg-zinc-700 dark:hover:bg-zinc-800 dark:hover:bg-opacity-100 ':
+                        'bg-neutral-100 ring-2 ring-neutral-600 hover:bg-neutral-200 hover:bg-opacity-100 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:hover:bg-opacity-100 ':
                           selectedActionIndex === 0,
                       }"
                       @click="selectAction(0)"
@@ -118,9 +120,9 @@
                     </button>
                     <button
                       type="button"
-                      class="relative m-1.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:bg-opacity-50"
+                      class="relative m-1.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-neutral-900 hover:bg-neutral-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:bg-neutral-800 dark:hover:bg-opacity-50"
                       :class="{
-                        'bg-zinc-100 ring-2 ring-zinc-600 hover:bg-zinc-200 hover:bg-opacity-100 dark:bg-zinc-700 dark:hover:bg-zinc-800 dark:hover:bg-opacity-100 ':
+                        'bg-neutral-100 ring-2 ring-neutral-600 hover:bg-neutral-200 hover:bg-opacity-100 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:hover:bg-opacity-100 ':
                           selectedActionIndex === 1,
                       }"
                       @dragenter="
@@ -131,7 +133,7 @@
                     >
                       <i
                         :class="{
-                          'animate animate-pulse text-green-600 dark:text-green-400':
+                          'animate animate-pulse text-green-600 dark:text-green-500':
                             rootStates.hocuspocus.connected &&
                             state.useHocuspocus,
                         }"
@@ -141,16 +143,16 @@
                     </button>
                     <button
                       type="button"
-                      class="relative m-1.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:bg-opacity-50"
+                      class="relative m-1.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-neutral-900 hover:bg-neutral-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:bg-neutral-800 dark:hover:bg-opacity-50"
                       :class="{
-                        'bg-zinc-100 ring-2 ring-zinc-600 hover:bg-zinc-200 hover:bg-opacity-100 dark:bg-zinc-700 dark:hover:bg-zinc-800 dark:hover:bg-opacity-100':
+                        'bg-neutral-100 ring-2 ring-neutral-600 hover:bg-neutral-200 hover:bg-opacity-100 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:hover:bg-opacity-100':
                           selectedActionIndex === 2,
                       }"
                       @click="selectAction(2)"
                     >
                       <i
                         :class="{
-                          'animate animate-pulse text-zinc-600 dark:text-zinc-400':
+                          'animate animate-pulse text-blue-600 dark:text-blue-500':
                             state.useWebRtc,
                         }"
                         class="ri-broadcast-line pr-1.5 text-2xl"
@@ -159,9 +161,9 @@
                     </button>
                     <button
                       type="button"
-                      class="relative m-1.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-zinc-900 hover:bg-zinc-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:bg-opacity-50"
+                      class="relative m-1.5 inline-flex items-center rounded-md bg-opacity-50 p-1 pl-2 pr-2 text-sm font-medium text-neutral-900 hover:bg-neutral-100 hover:bg-opacity-50 focus:z-10 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:bg-neutral-800 dark:hover:bg-opacity-50"
                       :class="{
-                        'bg-zinc-100 ring-2 ring-zinc-600 hover:bg-zinc-200 hover:bg-opacity-100 dark:bg-zinc-700 dark:hover:bg-zinc-800 dark:hover:bg-opacity-100':
+                        'bg-neutral-100 ring-2 ring-neutral-600 hover:bg-neutral-200 hover:bg-opacity-100 dark:bg-neutral-700 dark:hover:bg-neutral-800 dark:hover:bg-opacity-100':
                           selectedActionIndex === 3,
                       }"
                       @click="selectAction(3)"
@@ -174,7 +176,7 @@
                     </button>
                     <!--            <button-->
                     <!--                type="button"-->
-                    <!--                class="ml-1 p-1 pr-3 relative inline-flex items-center text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:opacity-70 focus:z-10 focus:outline-none focus:ring-1 focus:ring-zinc-600"-->
+                    <!--                class="ml-1 p-1 pr-3 relative inline-flex items-center text-sm font-medium text-neutral-600 dark:text-neutral-300 hover:opacity-70 focus:z-10 focus:outline-none focus:ring-1 focus:ring-neutral-600"-->
                     <!--                @click="router.push(`/${route.params.space}`); store.dispatch('openSelector')"-->
                     <!--            >-->
                     <!--              <i-->
@@ -184,7 +186,7 @@
                     <!--            </button>-->
                     <!--            <button-->
                     <!--                type="button"-->
-                    <!--                class="-ml-px p-1 pr-3 relative inline-flex items-center text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:opacity-70 focus:z-10 focus:outline-none focus:ring-1 focus:ring-zinc-600"-->
+                    <!--                class="-ml-px p-1 pr-3 relative inline-flex items-center text-sm font-medium text-neutral-600 dark:text-neutral-300 hover:opacity-70 focus:z-10 focus:outline-none focus:ring-1 focus:ring-neutral-600"-->
                     <!--                @click="isShared = !isShared"-->
                     <!--            >-->
                     <!--              <i-->
@@ -215,12 +217,12 @@
                     <router-link
                       v-if="doc[1] && doc[1].title"
                       exact
-                      class="hs m-3 mb-1 mt-1 block overflow-x-scroll rounded-md bg-white bg-opacity-50 text-black group-hover:bg-zinc-100 group-hover:bg-opacity-50 dark:bg-zinc-900 dark:bg-opacity-50 dark:text-white dark:group-hover:bg-zinc-800"
+                      class="hs m-3 mb-1 mt-1 block overflow-x-scroll rounded-md bg-white bg-opacity-50 text-black group-hover:bg-neutral-100 group-hover:bg-opacity-50 dark:bg-neutral-900 dark:bg-opacity-50 dark:text-white dark:group-hover:bg-neutral-800"
                       :class="{
-                        'bg-zinc-100 ring-2 ring-zinc-600 hover:bg-zinc-200 group-hover:text-black dark:bg-zinc-700 dark:group-hover:bg-zinc-800 dark:group-hover:text-white':
+                        'bg-neutral-100 ring-2 ring-neutral-600 hover:bg-neutral-200 group-hover:text-black dark:bg-neutral-700 dark:group-hover:bg-neutral-800 dark:group-hover:text-white':
                           i === selectedIndex,
                       }"
-                      exact-active-class="bg-zinc-200 dark:bg-zinc-800"
+                      exact-active-class="bg-neutral-200 dark:bg-neutral-800"
                       :to="'/' + route.params.space + '/' + doc[0]"
                       @click="setStates(doc[0], i)"
                     >
@@ -231,7 +233,7 @@
                               class="mx-1 flex w-64 items-center overflow-hidden text-sm font-bold"
                             >
                               {{ getPlainText(doc[1].title) }}
-                              <!--                              <span class="px-2 ml-2 text-xs w-48 overflow-hidden h-5 overflow-ellipsis leading-5 uppercase rounded-full bg-zinc-100 dark:bg-zinc-800 dark:text-white">-->
+                              <!--                              <span class="px-2 ml-2 text-xs w-48 overflow-hidden h-5 overflow-ellipsis leading-5 uppercase rounded-full bg-neutral-100 dark:bg-neutral-800 dark:text-white">-->
                               <!--                                {{ doc[0] }}-->
                               <!--                              </span>-->
                             </p>
@@ -245,14 +247,14 @@
                               class="w-28 px-1 text-sm font-medium"
                             >
                               <span
-                                class="mr-2 text-xs font-bold uppercase text-zinc-700 dark:text-zinc-300"
+                                class="mr-2 text-xs font-bold uppercase text-neutral-700 dark:text-neutral-300"
                                 >nodes
                               </span>
                               {{ doc[1].count }}
                             </p>
                             <p class="text-md w-48 font-medium">
                               <span
-                                class="mr-2 text-xs font-bold uppercase text-zinc-700 dark:text-zinc-300"
+                                class="mr-2 text-xs font-bold uppercase text-neutral-700 dark:text-neutral-300"
                                 >UPDATED
                               </span>
                               <UseTimeAgo
@@ -265,7 +267,7 @@
 
                             <p class="w-48 px-1 text-sm font-medium">
                               <span
-                                class="mr-2 text-xs font-bold uppercase text-zinc-700 dark:text-zinc-300"
+                                class="mr-2 text-xs font-bold uppercase text-neutral-700 dark:text-neutral-300"
                                 >CREATED
                               </span>
                               <UseTimeAgo

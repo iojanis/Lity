@@ -187,6 +187,10 @@ html
   background: rgba(12, 12, 12, 1);
 }
 
+.destroy-button {
+  display: none;
+}
+
 /*.cupertino-pane.editor-pane {*/
 /*  border-top-left-radius: 8px;*/
 /*  border-top-right-radius: 8px;*/

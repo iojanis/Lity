@@ -36,7 +36,7 @@
           as="div"
           class="mx-auto max-w-xl transform divide-y divide-black/5 overflow-hidden rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 transition-all"
           :class="{
-            'bg-opacity-50 backdrop-blur-lg backdrop-filter dark:bg-lityblackblur':
+            'bg-opacity-50 backdrop-blur-lg backdrop-filter dark:bg-blackblur':
               state.blurredInterface,
             'mt-32': hasNotch(),
           }"

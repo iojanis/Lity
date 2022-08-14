@@ -55,7 +55,7 @@
             class="
               inline-block
               align-top
-              bg-white dark:bg-lityblack
+              bg-white dark:bg-black
               rounded-lg
               text-left
               overflow-hidden
@@ -65,7 +65,7 @@
               sm:my-8  sm:max-w-lg sm:w-full
             "
           >
-            <div class="bg-white dark:bg-lityblack px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="bg-white dark:bg-black px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
 <!--                <div-->
 <!--                  class="-->

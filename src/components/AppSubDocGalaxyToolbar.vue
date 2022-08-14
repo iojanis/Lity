@@ -1,9 +1,9 @@
 <template>
   <div
     style="max-width: 20.5em"
-    class="hs top-pane follower-bar absolute left-0 right-0 z-20 ml-auto mr-auto overflow-y-scroll rounded-lg bg-white ring-1 ring-black ring-opacity-5 transition transition-all duration-500 ease-in-out dark:bg-lityblack"
+    class="hs top-pane follower-bar absolute left-0 right-0 z-20 ml-auto mr-auto overflow-y-scroll rounded-lg ring-1 ring-black ring-opacity-5 transition transition-all duration-500 ease-in-out bg-white dark:bg-black"
     :class="{
-      'bg-opacity-50 backdrop-blur backdrop-filter dark:bg-black/50':
+      'bg-opacity-50 backdrop-blur backdrop-filter bg-white/50 dark:bg-black/50':
         state.blurredInterface,
       blur2: isDark,
     }"

@@ -3,7 +3,7 @@
     style="width: 100%; margin-top: -1px"
     class="mt-0 m-0 rounded-t-lg fixed z-20 top-0 flex bg-white bg-opacity-50 dark:bg-black/50 "
     :class="{
-                'dark:bg-lityblack bg-opacity-100':
+                'dark:bg-black bg-opacity-100':
                   !state.blurredInterface,
               }"
     v-if="editor"
@@ -133,7 +133,7 @@
       select-auto
       bg-opacity-5 dark:bg-black/50 backdrop-filter backdrop-blur-lg
     "    :class="{
-                'dark:bg-lityblack bg-opacity-100':
+                'dark:bg-black bg-opacity-100':
                   !state.blurredInterface,
               }"
     :editor="editor"

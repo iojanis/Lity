@@ -2,7 +2,7 @@
   <TransitionRoot :show="state.isSettingsOpen" as="template">
     <Dialog as="div" @close="toggleSettings">
       <div
-        class="backdrop-blur2 fixed inset-0 z-50 overflow-y-auto bg-white bg-opacity-50 backdrop-filter dark:bg-zinc-900 dark:bg-opacity-50"
+        class="backdrop-blur2 fixed inset-0 z-50 overflow-y-auto bg-white bg-opacity-50 backdrop-filter dark:bg-neutral-900 dark:bg-opacity-50"
       >
         <div class="text-center">
           <TransitionChild
@@ -19,17 +19,19 @@
             as="template"
           >
             <div
-              class="mt-16 inline-block w-full transform overflow-hidden rounded-lg bg-white px-3 text-left align-top shadow-xl transition-all dark:bg-lityblack dark:text-white sm:max-w-md"
+              class="mt-16 inline-block w-full transform overflow-hidden rounded-lg px-3 text-left align-top shadow-xl transition-all dark:text-white sm:max-w-md"
               :class="{
                 'bg-opacity-50 backdrop-blur-lg backdrop-filter dark:bg-black/50':
                   state.blurredInterface,
+                'bg-white dark:bg-black':
+                  !state.blurredInterface,
                 'mt-32': hasNotch(),
               }"
             >
               <div>
                 <button
                   type="button"
-                  class="absolute focus:outline-none top-0 right-0 m-2 items-center rounded-full p-0 px-1 text-sm font-medium text-zinc-600 hover:opacity-50 focus:z-10 dark:text-zinc-200 "
+                  class="absolute focus:outline-none top-0 right-0 m-2 items-center rounded-full p-0 px-1 text-sm font-medium text-neutral-600 hover:opacity-50 focus:z-10 dark:text-neutral-200 "
                   @click="toggleSettings"
                 >
                   <i class="ri-close-circle-fill text-2xl" />
@@ -39,7 +41,7 @@
                   <div class="mt-1">
                     <div
                       v-if="false"
-                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
+                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
                     >
                       general
                     </div>
@@ -47,7 +49,7 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Reopen last document on start</span
                           >
                         </SwitchLabel>
@@ -55,9 +57,9 @@
                           v-model="state.useLatestDocument"
                           :class="[
                             state.useLatestDocument
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -77,18 +79,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Create new document on start</span
                           >
-                          <!--                          <span class="text-sm text-zinc-500"> (connected)</span>-->
+                          <!--                          <span class="text-sm text-neutral-500"> (connected)</span>-->
                         </SwitchLabel>
                         <Switch
                           v-model="state.useLatestDocument"
                           :class="[
                             !state.useLatestDocument
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -105,7 +107,7 @@
                     </div>
 
                     <div
-                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
+                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
                     >
                       visual
                     </div>
@@ -122,41 +124,41 @@
                       </select>
                     </div>
 
-                    <div class="my-2">
-                      <SwitchGroup as="div" class="flex justify-between">
-                        <SwitchLabel as="span" class="">
-                          <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
-                            >Always enable dark mode</span
-                          >
-                        </SwitchLabel>
-                        <Switch
-                          v-model="state.darkInterface"
-                          :class="[
-                            state.darkInterface
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
-                          ]"
-                        >
-                          <span
-                            aria-hidden="true"
-                            :class="[
-                              state.darkInterface
-                                ? 'translate-x-5'
-                                : 'translate-x-0',
-                              'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
-                            ]"
-                          />
-                        </Switch>
-                      </SwitchGroup>
-                    </div>
+<!--                    <div class="my-2">-->
+<!--                      <SwitchGroup as="div" class="flex justify-between">-->
+<!--                        <SwitchLabel as="span" class="">-->
+<!--                          <span-->
+<!--                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"-->
+<!--                            >Always enable dark mode</span-->
+<!--                          >-->
+<!--                        </SwitchLabel>-->
+<!--                        <Switch-->
+<!--                          v-model="state.darkInterface"-->
+<!--                          :class="[-->
+<!--                            state.darkInterface-->
+<!--                              ? 'bg-blue-600'-->
+<!--                              : 'bg-neutral-200 dark:bg-neutral-800',-->
+<!--                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',-->
+<!--                          ]"-->
+<!--                        >-->
+<!--                          <span-->
+<!--                            aria-hidden="true"-->
+<!--                            :class="[-->
+<!--                              state.darkInterface-->
+<!--                                ? 'translate-x-5'-->
+<!--                                : 'translate-x-0',-->
+<!--                              'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',-->
+<!--                            ]"-->
+<!--                          />-->
+<!--                        </Switch>-->
+<!--                      </SwitchGroup>-->
+<!--                    </div>-->
 
                     <div class="my-2">
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Enable blurred windows</span
                           >
                         </SwitchLabel>
@@ -164,9 +166,9 @@
                           v-model="state.blurredInterface"
                           :class="[
                             state.blurredInterface
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -183,7 +185,7 @@
                     </div>
 
                     <div
-                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
+                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
                     >
                       collaboration
                     </div>
@@ -192,18 +194,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Show other online users in selectors</span
                           >
-                          <!--                          <span class="text-sm text-zinc-500"> (connected)</span>-->
+                          <!--                          <span class="text-sm text-neutral-500"> (connected)</span>-->
                         </SwitchLabel>
                         <Switch
                           v-model="state.showOtherUsers"
                           :class="[
                             state.showOtherUsers
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -223,18 +225,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Dye nodes in user color</span
                           >
-                          <!--                          <span class="text-sm text-zinc-500"> (connected)</span>-->
+                          <!--                          <span class="text-sm text-neutral-500"> (connected)</span>-->
                         </SwitchLabel>
                         <Switch
                           v-model="state.showOtherColors"
                           :class="[
                             state.showOtherColors
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -254,18 +256,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Show cursors in nodes</span
                           >
-                          <span class="text-sm text-zinc-500"></span>
+                          <span class="text-sm text-neutral-500"></span>
                         </SwitchLabel>
                         <Switch
                           v-model="state.showOtherCursors"
                           :class="[
                             state.showOtherCursors
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -282,7 +284,7 @@
                     </div>
 
                     <div
-                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
+                      class="text-center font-sans text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
                     >
                       gravity
                     </div>
@@ -291,20 +293,20 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Use stronger gravity forces
                           </span>
                         </SwitchLabel>
-                        <span class="float-right mx-2 text-sm text-zinc-500">
+                        <span class="float-right mx-2 text-sm text-neutral-500">
                           <kbd>{{ osKeySymbol() }} + .</kbd>
                         </span>
                         <Switch
                           v-model="state.useStrongGravity"
                           :class="[
                             state.useStrongGravity
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -324,18 +326,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Fix nodes when dragging around</span
                           >
-                          <!--                          <span class="text-sm text-zinc-500"> (connected)</span>-->
+                          <!--                          <span class="text-sm text-neutral-500"> (connected)</span>-->
                         </SwitchLabel>
                         <Switch
                           v-model="state.fixNodesOnDrag"
                           :class="[
                             state.fixNodesOnDrag
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -355,18 +357,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Unfix last node when drag other</span
                           >
-                          <!--                          <span class="text-sm text-zinc-500"> (connected)</span>-->
+                          <!--                          <span class="text-sm text-neutral-500"> (connected)</span>-->
                         </SwitchLabel>
                         <Switch
                           v-model="state.unfixLastNode"
                           :class="[
                             state.unfixLastNode
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -386,11 +388,11 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Select node after creation</span
                           >
                           <span
-                            class="text-sm text-zinc-500 dark:text-zinc-400"
+                            class="text-sm text-neutral-500 dark:text-neutral-400"
                           >
                             (Gravity)</span
                           >
@@ -399,9 +401,9 @@
                           v-model="state.followNewlyCreatedNode"
                           :class="[
                             state.followNewlyCreatedNode
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -421,11 +423,11 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Select node after creation</span
                           >
                           <span
-                            class="text-sm text-zinc-500 dark:text-zinc-400"
+                            class="text-sm text-neutral-500 dark:text-neutral-400"
                           >
                             (@Mention)</span
                           >
@@ -434,9 +436,9 @@
                           v-model="state.followNewlyCreatedNodeMention"
                           :class="[
                             state.followNewlyCreatedNodeMention
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -456,18 +458,18 @@
                       <SwitchGroup as="div" class="flex justify-between">
                         <SwitchLabel as="span" class="">
                           <span
-                            class="text-sm font-medium text-zinc-900 dark:text-zinc-100"
+                            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
                             >Zoom in by selecting node</span
                           >
-                          <!--                          <span class="text-sm text-zinc-500"> (connected)</span>-->
+                          <!--                          <span class="text-sm text-neutral-500"> (connected)</span>-->
                         </SwitchLabel>
                         <Switch
                           v-model="state.zoomInOnNodeClick"
                           :class="[
                             state.zoomInOnNodeClick
-                              ? 'bg-zinc-600'
-                              : 'bg-zinc-200 dark:bg-zinc-800',
-                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2',
+                              ? 'bg-blue-600'
+                              : 'bg-neutral-200 dark:bg-neutral-800',
+                            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2',
                           ]"
                         >
                           <span
@@ -488,7 +490,7 @@
                         setDefaults();
                         toggleSettings();
                       "
-                      class="m-5 cursor-pointer text-center font-sans text-xs font-bold uppercase tracking-wider text-zinc-500"
+                      class="m-5 cursor-pointer text-center font-sans text-xs font-bold uppercase tracking-wider text-neutral-500"
                     >
                       reset default
                     </div>

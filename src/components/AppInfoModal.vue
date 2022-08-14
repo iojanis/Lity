@@ -19,10 +19,12 @@
             as="template"
           >
             <div
-              class="inline-block align-bottom bg-white dark:text-white dark:bg-black/90 rounded-lg mt-16 px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all m-3 sm:align-middle sm:max-w-md sm:w-full sm:p-6"
+              class="inline-block align-bottom dark:text-white rounded-lg mt-16 px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all m-3 sm:align-middle sm:max-w-md sm:w-full sm:p-6"
               :class="{
-                'bg-opacity-50 dark:bg-lityblackblur backdrop-filter backdrop-blur':
+                'bg-opacity-50 dark:bg-black/50 backdrop-filter backdrop-blur':
                   state.blurredInterface,
+                'bg-white dark:bg-black':
+                  !state.blurredInterface,
                 'mt-32': hasNotch(),
               }"
             >

@@ -21,7 +21,7 @@
         >
         <TransitionChild as="template">
           <div
-            class="inline-block transform overflow-hidden rounded-lg bg-white dark:bg-black/50 backdrop-blur text-left align-bottom shadow-xl transition-all dark:bg-lityblack sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
+            class="inline-block transform overflow-hidden rounded-lg bg-white dark:bg-black/50 backdrop-blur text-left align-bottom shadow-xl transition-all dark:bg-black sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
           >
             <div
               class="bg-white px-4 pt-5 pb-4 dark:bg-black/50 backdrop-blur sm:p-6 sm:pb-4"

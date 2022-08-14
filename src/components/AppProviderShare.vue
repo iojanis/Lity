@@ -58,8 +58,10 @@
               "
 
               :class="{
-                'bg-opacity-50 dark:bg-lityblackblur backdrop-filter backdrop-blur':
+                'bg-opacity-50 dark:bg-black backdrop-filter backdrop-blur':
                   state.blurredInterface,
+                'dark:bg-black bg-white':
+                  !state.blurredInterface,
                   'mt-32': hasNotch()
               }"
 

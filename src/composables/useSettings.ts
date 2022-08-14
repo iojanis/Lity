@@ -55,7 +55,7 @@ const defaultValues = {
   isProviderOpen: false,
   isEditOpen: false,
   blurredInterface: false,
-  darkInterface: false,
+  darkInterface: true,
   useLatestDocument: true,
   showOtherColors: true,
   showOtherUsers: true,
