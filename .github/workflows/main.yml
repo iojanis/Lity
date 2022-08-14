@@ -1,6 +1,9 @@
 name: 'Release and Publish'
 
-on: pull_request
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   create-release:
