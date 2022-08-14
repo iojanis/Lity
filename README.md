@@ -1,6 +1,7 @@
-<h1 align="center">Spatia:Lity Alpha</h1>
-![app-icon copy](https://user-images.githubusercontent.com/12971934/184537847-5f433cdb-c632-4943-917d-19a24278eeeb.png)
+![app-icon copy](https://user-images.githubusercontent.com/12971934/184537872-3aebba14-79db-4bae-a7a4-6b2cb4bf4131.png)
 
+
+<h1 align="center">Lity Alpha</h1>
 
 <img width="1392" alt="Screenshot 2022-08-14 at 14 46 14" src="https://user-images.githubusercontent.com/12971934/184537544-18c0929a-b0f9-4389-8e3a-0de4b338455d.png">
 
