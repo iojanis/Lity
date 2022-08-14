@@ -7,7 +7,7 @@
     "distDir": "../dist",
     "devPath": "http://localhost:3003",
     "beforeDevCommand": "yarn dev",
-    "beforeBuildCommand": "yarn build; cp splashscreen.html dist/"
+    "beforeBuildCommand": "yarn build"
   },
   "tauri": {
     "bundle": {
