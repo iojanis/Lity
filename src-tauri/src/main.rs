@@ -189,6 +189,7 @@ fn main() {
   tauri::Builder::default()
     .menu(menu)
     .on_page_load(|window, _payload| {
+        #[cfg(target_os = "macos")]
         window.set_transparent_titlebar(true);
     })
     // .on_menu_event(|event| {
