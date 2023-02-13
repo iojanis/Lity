@@ -3,6 +3,9 @@ node_modules
 dist
 dist-ssr
 
+src-tauri/.cargo/
+src-tauri/gen/
+
 /tests/e2e/videos/
 /tests/e2e/screenshots/
 /instrumented
