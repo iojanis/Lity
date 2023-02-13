@@ -68,7 +68,7 @@
                   </p>
                   <p>
                     <br />
-                    This software was created out of an experiment and will be replaced by a successor in the future.
+                    This software was created out of an experiment and will be replaced by a successor in the future. More Information soon @lity.cc
                   </p>
                 </div>
               </div>
