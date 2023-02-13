@@ -64,7 +64,6 @@
     "remixicon": "^2.5.0",
     "sass": "^1.51.0",
     "tippy.js": "^6.3.7",
-    "vite-plugin-pwa": "^0.12.0",
     "vue": "~3.2.33",
     "vue-i18n": "^9.1.10",
     "vue-router": "~4.1.3",
