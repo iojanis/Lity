@@ -44,7 +44,7 @@
       }
     },
     "updater": {
-      "active": true,
+      "active": false,
       "endpoints": [
         "https://files.janis.io/v/cc.lity.app/versions.json"
       ],
