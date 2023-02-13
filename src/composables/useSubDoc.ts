@@ -4,9 +4,11 @@ import { IndexeddbPersistence } from "y-indexeddb";
 import { useUtility } from "./useUtility";
 import { useSettings } from "./useSettings";
 import { useRoute, useRouter } from "vue-router";
+import {useSpaces} from "@/composables/useSpaces";
 
 export const useSubDoc = (yRootDoc: Y.Doc, spaceId: any, docId: any) => {
   const { state, logger } = useSettings();
+  const { setLastUsed } = useSpaces();
   const subDocState = reactive({
     hasLoadedSubDoc: false,
   });
@@ -80,9 +82,9 @@ export const useSubDoc = (yRootDoc: Y.Doc, spaceId: any, docId: any) => {
   ySubDocIndexedDb.once("synced", () => {
     subDocState.hasLoadedSubDoc = true;
     if (!docId || !nodeId.value) {
-      addDocumentOrUpdate(ySubDoc.guid);
-      // router.push(`/${spaceId.value}/${ySubDoc.guid}/index`);
+      addDocumentOrUpdate(ySubDoc.guid);// router.push(`/${spaceId.value}/${ySubDoc.guid}/index`);
     }
+    setLastUsed(`/${spaceId}/${docId}/index`)
 
     jSubDocs.value = Object.entries(ySubDocs.toJSON());
 

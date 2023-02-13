@@ -59,6 +59,8 @@ const localSpaces = useStorage("local-lity-spaces", {
   spaces: [],
 });
 
+const lastOpenedSpace = useStorage('last-opened-space', null)
+
 export const useSpaces = () => {
   const { uuid, stringToSlug } = useUtility();
   const router = useRouter();
@@ -87,7 +89,14 @@ export const useSpaces = () => {
     // if (!route.params.node) {
     //   router.push(`/${route.params.space}/index/index`);
     // }
+    // console.log('redirect')
+
     createDefaultSpace();
+    if (lastOpenedSpace.value) {
+      console.log('last opened:')
+      console.log(lastOpenedSpace.value)
+      router.push(lastOpenedSpace.value)
+    }
     isRedirected.value = true;
   };
 
@@ -169,8 +178,10 @@ export const useSpaces = () => {
     }
   };
 
-  const setSpace = (spaceId) => {
-    router.push(`/${spaceId}`);
+  const setLastUsed = (lastUsed) => {
+    console.log('set last used')
+    console.log(lastUsed)
+    lastOpenedSpace.value = lastUsed
   };
 
   const setIndex = (spaceId, docId) => {
@@ -192,6 +203,7 @@ export const useSpaces = () => {
   };
 
   return {
+    setLastUsed,
     localSpaces,
     resetSpaces,
     redirect,

@@ -28,7 +28,7 @@
         dark: state && !state.blurredInterface && isDark,
       }"
     >
-      <transition name="fade" mode="in-out">
+      <transition name="fade" mode="in-out" duration="200">
         <div
           v-if="
             (subDocState.hasLoadedSubDoc &&
@@ -124,7 +124,7 @@ import { useUtility } from "../composables/useUtility";
 import { useEditorPane } from "../composables/useEditorPane";
 import { useSubDoc } from "../composables/useSubDoc";
 import { useSubProvider } from "../composables/useSubProvider";
-import { useDark } from "@vueuse/core";
+import {useClipboard, useDark} from "@vueuse/core";
 import AppDeleteModal from "./AppDeleteModal.vue";
 
 const props = defineProps<{
@@ -213,6 +213,11 @@ if (window.rpc && window.rpc.notify) {
   });
 }
 
+
+const source = ref('')
+
+const { copy } = useClipboard({source});
+
 const keys = (evt) => {
   if (evt.key === "Escape") {
     if (!isAnyOpen()) {
@@ -238,28 +243,29 @@ const keys = (evt) => {
     evt.preventDefault();
     deleteSubDoc(props.docId);
   }
-  if (evt.key === "p" && osKey(evt)) {
+  if (evt.key === "e" && osKey(evt)) {
     evt.preventDefault();
-    //
-    // const yExport = {
-    //   nodes: [],
-    //   links: [],
-    //   documents: [],
-    // };
-    //
-    // yExport.nodes = ySubDoc.getMap("nodes").toJSON();
-    // yExport.links = ySubDoc.getMap("links").toJSON();
-    //
-    // const iterNodes = Object.entries(yExport.nodes);
-    //
-    // for (let i = 0; i < iterNodes.length; i++) {
-    //   const iN = iterNodes[i][1];
-    //   const doc = ySubDoc.getXmlFragment(iN.id);
-    //   yExport.documents.push([iN.id, JSON.stringify(doc)]);
-    // }
 
-    // source.value = JSON.stringify(yExport)
-    // copy()
+
+    const yExport = {
+      nodes: [],
+      links: [],
+      documents: [],
+    };
+
+    yExport.nodes = ySubDoc.getMap("nodes").toJSON();
+    yExport.links = ySubDoc.getMap("links").toJSON();
+
+    const iterNodes = Object.entries(yExport.nodes);
+
+    for (let i = 0; i < iterNodes.length; i++) {
+      const iN = iterNodes[i][1];
+      const doc = ySubDoc.getXmlFragment(iN.id);
+      yExport.documents.push([iN.id, JSON.stringify(doc)]);
+    }
+
+    source.value = JSON.stringify(yExport)
+    copy()
   }
 };
 

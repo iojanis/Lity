@@ -1,24 +1,29 @@
 [package]
-name = "Lity"
-version = "1.2.5"
+name = "lity"
+version = "1.5.0"
 description = "Revisit your thoughts in sync."
 authors = [ "Janis Jendraß" ]
 license = ""
 repository = ""
-default-run = "Lity"
+default-run = "lity"
 edition = "2021"
 build = "src/build.rs"
 
 [build-dependencies]
-tauri-build = { version = "1.0.0-rc.7", features = [] }
+tauri-build = { version = "2.0.0-alpha.1", features = [] }
 
 [dependencies]
 serde_json = "1.0"
+serde = { version = "1.0", features = [ "derive" ] }
+tauri = { version = "2.0.0-alpha.3", features = ["api-all", "cli", "system-tray", "updater"] }
+
+[target."cfg(target_os = \"macos\")".dependencies]
 cocoa = "0.24.0"
 objc = "0.2.7"
-serde = { version = "1.0", features = [ "derive" ] }
-tauri = { version = "1.0.0-rc.8", features = ["api-all", "cli", "system-tray", "updater"] }
 
 [features]
 default = [ "custom-protocol" ]
 custom-protocol = [ "tauri/custom-protocol" ]
+
+[lib]
+crate-type = ["staticlib", "cdylib", "rlib"]

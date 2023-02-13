@@ -110,26 +110,11 @@
       property="og:site_name"
       content="<% VITE_APP_TITLE />"
     />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <script>
-      var _paq = (window._paq = window._paq || []);
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "//stats.janis.io/";
-        _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "3"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.async = true;
-        g.src = u + "matomo.js";
-        s.parentNode.insertBefore(g, s);
-      })();
-    </script>
+    <script defer data-domain="app.lity.cc" src="https://stats.janis.io/js/plausible.js"></script>
   </body>
 </html>

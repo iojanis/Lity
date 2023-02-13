@@ -93,6 +93,8 @@ export const useGalaxy = (
   const sizeScale = scaleLinear().domain([0, 30]).range([0.5, 2]).clamp(true);
 
   const labelAlpha = scaleLinear().domain([1.2, 2]).range([0, 1]).clamp(true);
+  const labelHeadlineAlpha = scaleLinear().domain([1.2, 3]).range([0.6, 1]).clamp(true);
+  const labelSubAlpha = scaleLinear().domain([.2, 1]).range([0, 1]).clamp(true);
 
   const defaultStyle = {
     background: styleFallback.background,
@@ -531,13 +533,13 @@ export const useGalaxy = (
         }
         const size = sizeScale(info.neighbors.length);
         const { fill, border } = getNodeColor(node.id, model);
-        const fontSize = (model.style.fontSize / globalScale) * 1.1;
+        const fontSize = (model.style.fontSize / globalScale) * 1.2;
         const nodeState = getNodeState(node.id, model);
         // eslint-disable-next-line no-unused-vars
         const textColor = fill.copy({
           opacity:
             nodeState === "regular"
-              ? labelAlpha(globalScale)
+              ? (info.neighbors.length > 3 ? labelHeadlineAlpha(globalScale) : (info.neighbors.length > 2 ? labelSubAlpha(globalScale) : labelAlpha(globalScale)))
               : nodeState === "highlighted"
               ? 1
               : Math.min(labelAlpha(globalScale), fill.opacity),
@@ -551,7 +553,7 @@ export const useGalaxy = (
         const borderColor = border.copy({
           opacity:
             nodeState === "regular"
-              ? labelAlpha(globalScale)
+              ? (info.neighbors.length > 3 ? labelHeadlineAlpha(globalScale) : (info.neighbors.length > 2 ? labelSubAlpha(globalScale) : labelAlpha(globalScale)))
               : nodeState === "highlighted"
               ? 1
               : Math.min(labelAlpha(globalScale), fill.opacity),
@@ -671,7 +673,7 @@ export const useGalaxy = (
               truncate(label, 48),
               node.x,
               node.y + size + 1,
-              fontSize / 1.4,
+              fontSize,
               borderColor
             );
         } else {
@@ -1165,7 +1167,8 @@ export const useGalaxy = (
       const trueNodes = graph.graphData().nodes;
       if (initialZoom.value) {
         if (trueNodes.length > 1) {
-          graph.d3Force("center", forceCenter(0, 0));
+          graph.d3Force("center", forceCenter(0, 0))
+          graph.d3Force('charge').strength(-100);
           graph.zoomToFit(50, 20);
           initialZoom.value = false;
           if (computedNodeId.value) {

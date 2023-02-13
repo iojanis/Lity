@@ -103,7 +103,7 @@
                       border-0
                       dark:bg-white dark:text-white
                       bg-opacity-50 dark:bg-opacity-5
-                      focus:ring-2 focus:ring-gray-600
+                      focus:ring-2 focus:ring-blue-600
                       text-lg
                       shadow-lg
                       bg-opacity-1
@@ -121,7 +121,7 @@
                         <SwitchLabel as="span" class="">
                           <span class="text-sm font-medium text-zinc-900 dark:text-zinc-100">Share your Gravity using WebRTC</span>
                         </SwitchLabel>
-                        <Switch v-model="state.useWebRtc" :class="[state.useWebRtc ? 'bg-gray-600' : 'bg-zinc-200 dark:bg-zinc-800', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-750 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500']">
+                        <Switch v-model="state.useWebRtc" :class="[state.useWebRtc ? 'bg-blue-600' : 'bg-zinc-200 dark:bg-zinc-800', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-750 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500']">
                           <span aria-hidden="true" :class="[state.useWebRtc ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-750']" />
                         </Switch>
                       </SwitchGroup>
@@ -150,7 +150,7 @@
                       border-0
                       dark:bg-white dark:text-white
                       bg-opacity-50 dark:bg-opacity-5
-                      focus:ring-2 focus:ring-gray-600
+                      focus:ring-2 focus:ring-blue-600
                       text-lg
                       shadow-lg
                       bg-opacity-1

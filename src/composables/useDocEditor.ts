@@ -35,10 +35,12 @@ import { Image } from "@tiptap/extension-image";
 import { lowlight } from "lowlight";
 import { useSubProvider } from "./useSubProvider";
 import { Meta } from "../components/editor/Meta";
-import { Formula } from "../components/editor/formula";
+import {Formula, regex} from "../components/editor/formula";
 import Commands from "../components/editor/commands";
 import CommandsList from "../components/editor/CommandsList.vue";
+import json = Mocha.reporters.json;
 // import KatexElem from "../components/editor/formula/entensionInline.ts";
+import wiki from "wikijs";
 
 const Document = ExtensionDocument.extend({
   content: "heading block*",
@@ -147,6 +149,7 @@ export const useDocEditor = (
       HTMLAttributes: {
         class: "mention",
       },
+      allDocs: jAllNodes,
       ySubDoc: ySubDoc,
       suggestion: {
         allowSpaces: true,
@@ -901,8 +904,22 @@ export const useDocEditor = (
 
     if (jsonContent && jsonContent[0]) {
       const content = jsonContent[0].content ? jsonContent[0].content : "";
+      if (content === "") {
+        console.log("NO CONTENT");
+        if (node.title !== "") {
+          if (getPlainText(node.title) !== node.id.toString()) {
+            console.log("THERE IS A TITLE", getPlainText(node.title));
+            editor.commands.setContent(node.title);
+          }
+        } else {
+          console.log("THERE IS NO TITLE");
+          node.title = nodeId;
+        }
+        yNodes.set(nodeId, node);
+      }
 
       if (content && getPlainText(content) !== getPlainText(node.title)) {
+        console.log("TITLE");
         node.title = content;
         yNodes.set(nodeId, node);
         if (nodeId === "index") {
@@ -944,9 +961,32 @@ export const useDocEditor = (
           // node.title = "";
           yNodes.set(nodeId, node);
           if (node.href) {
-            editor.commands.setContent(
-              `<a href="${node.href}">${node.title}</a>`
-            );
+            // editor.commands.setContent(
+            //   `<a href="${node.href}">${node.title}</a>`
+            // );
+            if (node.href.includes('wikipedia.org') || node.href.includes('/wiki/')) {
+
+              const regex = /\/wiki\/([\w%]+)/g;
+              const found = node.href.match(regex).toString().replace('/wiki/', '');
+
+              console.log('FETCHING DATA')
+
+              fetch(
+                "https://en.wikipedia.org/w/api.php?action=parse&page="+ found + "&origin=*&format=json"
+              )
+                  .then(x => x.json())
+                  .then(y => {
+                    console.log('1')
+                    if (y.parse.text !== null && y.parse.text['*'] !== null) {
+                      console.log(y.parse.text['*'])
+                      console.log('2')
+                      editor.commands.setContent('<h1>' + y.parse.title + '</h1>' + y.parse.text['*'])
+                      managePane(editor)
+                    console.log('3')
+                    }
+                    console.log('4')
+                  });
+            }
           } else {
             editor.commands.setContent(node.title);
           }
@@ -1001,21 +1041,23 @@ export const useDocEditor = (
           const targetId = stringToSlug(target);
           const possible = yNodes.get(targetId);
           if (!possible || possible.href !== target) {
-            yNodes.set(targetId, {
-              id: targetId,
-              group: 1,
-              title: target,
-              created: new Date().toISOString(),
-              updated: new Date().toISOString(),
-              href: target,
-              neighbors: [source],
-              links: [source],
-            });
-            yLinks.set(targetId + "_" + source, {
-              target: source,
-              source: targetId,
-              value: 0,
-            });
+            if (target.includes('wikipedia.org') || target.includes('/wiki/')) {
+              yNodes.set(targetId, {
+                id: targetId,
+                group: 1,
+                title: target,
+                created: new Date().toISOString(),
+                updated: new Date().toISOString(),
+                href: target,
+                neighbors: [source],
+                links: [source],
+              });
+              yLinks.set(targetId + "_" + source, {
+                target: source,
+                source: targetId,
+                value: 0,
+              });
+            }
           }
           if (possible) {
             const source = nodeId;

@@ -521,6 +521,7 @@ const importDocument = (doc) => {
   if (doc) {
     searchContent.value = "";
     const jDoc = JSON.parse(doc);
+    console.log(jDoc)
     if (jDoc.nodes && jDoc.links && jDoc.documents) {
       const newYDoc = new Y.Doc();
       router.push(`/${route.params.space}/${newYDoc.guid}/index`);
@@ -531,10 +532,12 @@ const importDocument = (doc) => {
       const yLinks = newYDoc.getMap("links");
 
       for (let i = 0; i < nodes.length; i++) {
+        console.log(nodes[i][0], nodes[i][1])
         yNodes.set(nodes[i][0], nodes[i][1]);
       }
       for (let i = 0; i < links.length; i++) {
         yLinks.set(links[i][0], links[i][1]);
+        console.log(links[i][0], links[i][1])
       }
       for (let i = 0; i < jDoc.documents.length; i++) {
         // console.log(jDoc.documents[i])

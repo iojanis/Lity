@@ -1,11 +1,11 @@
 <template>
-  <app-reload-prompt />
+<!--  <app-reload-prompt />-->
   <router-view></router-view>
 </template>
 
 <script setup lang="ts">
-import AppReloadPrompt from "./components/AppMobileReloadPrompt.vue";
-import "@benrbray/prosemirror-math/style/math.css";
+// import AppReloadPrompt from "./components/AppMobileReloadPrompt.vue";
+// import "@benrbray/prosemirror-math/style/math.css";
 import "katex/dist/katex.min.css";
 </script>
 
@@ -199,6 +199,7 @@ html
 
 .pane {
   padding-top: 0px !important;
+  cursor: default!important;
   background: none !important;
 }
 

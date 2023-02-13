@@ -191,6 +191,10 @@ const awarenessStatesToArray = (states: Map<number, Record<string, any>>) => {
   });
 };
 
+const isDesktop = () => {
+
+}
+
 function updateDoc(yRootDocs, document, node) {
   let doclistitem = {};
   const remote = yRootDocs.getMap().get(document);
@@ -221,5 +225,6 @@ export const useUtility = () => {
     truncate,
     awarenessStatesToArray,
     osKeySymbol,
+    isDesktop
   };
 };

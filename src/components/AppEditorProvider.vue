@@ -23,7 +23,7 @@ import AppProviderShare from "./AppProviderShare.vue";
 import AppProviderSelectorEdit from "./AppProviderSelectorEdit.vue";
 
 const { state, toggleOnly } = useSettings();
-const { osKey } = useUtility();
+const { osKey, isMobile } = useUtility();
 
 const { redirect, isRedirected, spaceId, spaceUrl, spaceToken } = useSpaces()
 

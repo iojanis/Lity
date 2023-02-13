@@ -1,7 +1,7 @@
 <template>
   <div
     style="width: 100%; margin-top: -1px"
-    class="mt-0 m-0 rounded-t-lg fixed z-20 top-0 flex bg-white bg-opacity-50 dark:bg-black/50 "
+    class="mt-0 m-0 rounded-t-lg fixed z-20 top-0 flex bg-white bg-opacity-50 dark:bg-black/50 backdrop-blur backdrop-filter"
     :class="{
                 'dark:bg-black bg-opacity-100':
                   !state.blurredInterface,
@@ -78,6 +78,7 @@
         hover:opacity-100
         focus:outline-none
       "
+      v-tippy="{ content: 'Switch Height <kbd>Shift + Tab</kbd>', placement: 'top' }"
       type="button"
       @click="emit('switch')"
     >
@@ -105,6 +106,7 @@
         hover:opacity-100
         focus:outline-none
       "
+      v-tippy="{ content: 'Close <kbd>Escape</kbd>', placement: 'top' }"
       type="button"
       @click="emit('hide')"
     >
@@ -130,6 +132,7 @@
       p-3
       pb-12
       pt-12
+      cursor-text
       select-auto
       bg-opacity-5 dark:bg-black/50 backdrop-filter backdrop-blur-lg
     "    :class="{
@@ -151,6 +154,7 @@ import MenuBar from "./editor/MenuBar.vue";
 import { useDocEditor } from "../composables/useDocEditor";
 import { useSettings } from "../composables/useSettings";
 import { onBeforeUnmount, onMounted } from "vue";
+import {useUtility} from "@/composables/useUtility";
 
 const props = defineProps<{
   yRootDoc: Y.Doc;
@@ -198,7 +202,7 @@ const scrolling = () => {
 };
 
 const { state } = useSettings()
-
+const { osKeySymbol } = useUtility();
 const { editor } = useDocEditor(emit, props.ySubDoc, props.nodeId, props.hocuspocusProvider, props.webRtcProvider, props.yRootDoc)
 
 onBeforeUnmount(()=>{

@@ -36,7 +36,7 @@
                 >
                   <i class="ri-close-circle-fill text-2xl" />
                 </button>
-                <div class="grid grid-cols-3 text-black dark:text-white">
+                <div class="grid grid-cols-3 shrink-0 text-black dark:text-white">
                   <img
                     class="h-32 w-auto"
                     src="@/assets/icon.png"
@@ -44,14 +44,14 @@
                   />
                   <div class="mx-auto text-left my-auto col-span-2">
                     <h1 class="mb-2 leading-1 text-2xl">
-                      Spatia:Lity
+                      Lity
                       <span class="text-zinc-700 dark:text-zinc-300">Alpha</span>
                     </h1>
                     <p class="text-zinc-600 dark:text-zinc-200">
-                      Version {{ state.version }}
+                      <strong>Version</strong> {{ state.version }}
                     </p>
                     <p class="text-zinc-600 dark:text-zinc-200">
-                      Website <a href="https://lity.cc">Lity.CC</a>
+                      <strong>Website</strong> <a href="https://lity.cc">Lity.CC</a>
                     </p>
                   </div>
                 </div>
@@ -60,24 +60,15 @@
                   class="py-3"
                 >
                   <p class="text-zinc-600 dark:text-zinc-200 text-justify">
-                    <strong>Spatia:Lity</strong> is developed by
+                    <strong>Lity</strong> is developed by
                     <strong
-                      ><a target="_blank" href="https://janis.io">Janis Jendraß</a></strong
+                      ><a target="blank" href="https://janis.io">Janis Jendraß</a></strong
                     >
-                    with a little help from my friends. Thanks to
-                    <strong>Lynn</strong> who shared her home with me and to
-                    <strong>Manuel</strong> who's currently doing so. Also to
-                    <strong>Paul</strong> who provided me with the finest herbs.
-                    In addition, thanks to my <strong>RealitySouls</strong> who
-                    gave me an unforgettable summer. As well as
-                    <strong>Malte</strong>, <strong>Lina</strong> and
-                    <strong>Fee</strong> who helped me a lot to rediscover my
-                    focus. I am thankful for my family, all supporters and that
-                    I could realize my dream.
+                    with a little help from my friends.
                   </p>
                   <p>
                     <br />
-                    This would not have been possible without you.
+                    This software was created out of an experiment and will be replaced by a successor in the future.
                   </p>
                 </div>
               </div>

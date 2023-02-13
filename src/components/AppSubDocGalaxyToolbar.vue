@@ -115,7 +115,7 @@
           v-tippy="{
             content: props.linkingNodes
               ? 'Select Node(s) to Link them'
-              : 'Link Nodes',
+              : 'Link Nodes <kbd>'+osKeySymbol()+' + J</kbd>',
             placement: 'bottom',
           }"
           @click="emit('linkNodes')"
@@ -125,7 +125,7 @@
         <button
           class="tooltip relative -ml-px inline-flex items-center p-1 text-sm font-medium text-black opacity-70 hover:opacity-100 focus:z-10 focus:outline-none dark:text-white"
           type="button"
-          v-tippy="{ content: 'Create new Node', placement: 'bottom' }"
+          v-tippy="{ content: 'Create new Node <kbd>'+osKeySymbol()+' + K</kbd>', placement: 'bottom' }"
           @click="emit('createNode')"
         >
           <i class="ri-add-circle-fill text-2xl" />
@@ -141,7 +141,7 @@
           }"
           class="tooltip relative -ml-px inline-flex items-center p-1 text-sm font-medium opacity-70 hover:opacity-100 focus:z-10 focus:outline-none dark:text-white"
           type="button"
-          v-tippy="{ content: 'Delete', placement: 'bottom' }"
+          v-tippy="{ content: 'Delete  <kbd>'+osKeySymbol()+' + Backspace</kbd>', placement: 'bottom' }"
           @click="emit('deleteNode')"
         >
           <i class="ri-delete-bin-fill text-2xl" />
@@ -154,7 +154,7 @@
           }"
           class="tooltip relative -ml-px inline-flex items-center p-1 text-sm font-medium opacity-70 hover:opacity-100 focus:z-10 focus:outline-none dark:text-white"
           type="button"
-          v-tippy="{ content: 'Unlink Nodes', placement: 'bottom' }"
+          v-tippy="{ content: 'Unlink Nodes  <kbd>'+osKeySymbol()+' + L</kbd>', placement: 'bottom' }"
           @click="emit('unlinkNodes')"
         >
           <i class="ri-scissors-fill text-2xl" />

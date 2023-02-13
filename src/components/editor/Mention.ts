@@ -3,6 +3,7 @@ import { Node as ProseMirrorNode } from "prosemirror-model";
 import { PluginKey, Plugin } from "prosemirror-state";
 import Suggestion, { SuggestionOptions } from "@tiptap/suggestion";
 import * as Y from "yjs";
+import {useUtility} from "@/composables/useUtility";
 
 export type MentionOptions = {
   HTMLAttributes: Record<string, any>;
@@ -12,7 +13,10 @@ export type MentionOptions = {
   }) => string;
   suggestion: Omit<SuggestionOptions, "editor">;
   ySubDoc: any;
+  allDocs: any;
 };
+
+const { getPlainText } = useUtility();
 
 export const MentionPluginKey = new PluginKey("mention");
 
@@ -24,7 +28,14 @@ export const Mention = Node.create<MentionOptions>({
     return {
       HTMLAttributes: {},
       renderLabel({ options, node }) {
-        return `${node.attrs.label}`;
+        console.dir(node)
+        let title = node.attrs.id
+        if (options.allDocs && node.attrs.id) {
+          const found = options.allDocs.find(el => el.id === node.attrs.id.toString());
+          if (found && found.title) return `${getPlainText(found.title)}`;
+        }
+        title = node.attrs.label
+        return `${title}`;
       },
       suggestion: {
         char: "@",
@@ -233,7 +244,7 @@ export const Mention = Node.create<MentionOptions>({
                 type: this.name,
                 attrs: {
                   space: null,
-                  id: newId,
+                  id: newId.toString(),
                   label: selection.$from.doc.textBetween(
                     selection.from,
                     selection.to,

@@ -11,20 +11,20 @@ import "@/assets/tippy.css";
 import "tippy.js/animations/shift-away.css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { useRegisterSW } from "virtual:pwa-register/vue";
+// import { useRegisterSW } from "virtual:pwa-register/vue";
 // import merge from "deepmerge";
 // import renderMathInElement from "katex/dist/contrib/auto-render";
 // import katex from "katex";
 const intervalMS = 60 * 60 * 1000;
 
-const updateServiceWorker = useRegisterSW({
-  onRegistered(r: ServiceWorkerRegistration | undefined) {
-    r &&
-      setInterval(() => {
-        r.update();
-      }, intervalMS);
-  },
-});
+// const updateServiceWorker = useRegisterSW({
+//   onRegistered(r: ServiceWorkerRegistration | undefined) {
+//     r &&
+//       setInterval(() => {
+//         r.update();
+//       }, intervalMS);
+//   },
+// });
 
 const head = createHead();
 const app = createApp(App);

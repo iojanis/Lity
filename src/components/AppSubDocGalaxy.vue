@@ -45,7 +45,7 @@ import { useUtility } from "../composables/useUtility";
 import { useSettings } from "../composables/useSettings";
 const isDark = useDark();
 
-const { state } = useSettings()
+const { state, toggleOnly } = useSettings()
 
 const props = defineProps<{
   yRootDoc: Y.Doc;
@@ -161,8 +161,19 @@ const keys = (evt) => {
   // }
   if (evt.key === "Escape") {
     evt.preventDefault();
-    if (!isAnyOpen()) Escape();
+    if (!isAnyOpen()) {
+      Escape();
+    } else {
+      console.log('escape')
+      toggleOnly('none')
+    }
   }
+  // if (evt.key === "Backspace") {
+  //   evt.preventDefault();
+  //   if (isAnyOpen()) {
+  //     toggleOnly('selector')
+  //   }
+  // }
   if (evt.key === "k" && osKey(evt) && !evt.shiftKey) {
     evt.preventDefault();
     doAction(false, { id: props.nodeId });
