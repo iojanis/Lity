@@ -161,13 +161,13 @@ export const useSpaces = () => {
       "causa-lity-cc",
       "Lity.CC",
       "wss://causa.lity.cc",
-      "A54F-G454-47CA-FHRD"
+      "public"
     );
     createSpace(
       "local",
-      "LocalHost",
+      "Localhost",
       "ws://localhost:3000",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3NTU4Mjg2LCJleHAiOjE2NDc1NjE4ODZ9.wILTR5R7zD-FZrV3-d9FzJnH9q__chNxC_glxaacRhc"
+      "private"
     );
     if (!route.params.space) {
       setSpaceIndex(getDefaultSpace());
