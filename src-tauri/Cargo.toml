@@ -1,21 +1,21 @@
 [package]
-name = "lity"
-version = "1.5.1"
+name = "Lity"
+version = "1.6.0"
 description = "Revisit your thoughts in sync."
 authors = [ "Janis Jendraß" ]
 license = ""
 repository = ""
-default-run = "lity"
+default-run = "Lity"
 edition = "2021"
 build = "src/build.rs"
 
 [build-dependencies]
-tauri-build = { version = "2.0.0-alpha.1", features = [] }
+tauri-build = { version = "1.2.1", features = [] }
 
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = [ "derive" ] }
-tauri = { version = "2.0.0-alpha.3", features = ["api-all", "cli", "system-tray", "updater"] }
+tauri = { version = "1.2.4", features = ["api-all", "system-tray", "updater"] }
 
 [target."cfg(target_os = \"macos\")".dependencies]
 cocoa = "0.24.0"

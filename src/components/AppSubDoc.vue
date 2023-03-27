@@ -321,6 +321,8 @@ onMounted(() => {
     toggleOnly("share");
   }
 
+  appWindow.show();
+
   document.addEventListener("keydown", keys);
   let resize: any;
 

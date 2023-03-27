@@ -1,7 +1,7 @@
 {
   "package": {
-    "productName": "lity",
-    "version": "1.5.1"
+    "productName": "Lity",
+    "version": "1.6.0"
   },
   "build": {
     "distDir": "../dist",
@@ -44,12 +44,12 @@
       }
     },
     "updater": {
-      "active": false,
+      "active": true,
       "endpoints": [
         "https://files.janis.io/v/cc.lity.app/versions.json"
       ],
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEU2MUJGQkE2MTgyQTJEQkMKUldTOExTb1lwdnNiNWpPb1RqbkFtRUlCYVV5VDhSMFQwSUIyQzFlQkdaQksrVGt6MUs2am54NzgK%"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI4RDgxQ0I3Mzg0Mzc0NEEKUldSS2RFTTR0eHpZS0lhSFFsRXlyZnZPYXprR0s1Sm9KWUNQWjRZTmV2czR3dVkwS1JCZVMxbU4K"
     },
     "allowlist": {
       "all": true
@@ -64,7 +64,7 @@
         "transparent": false,
         "fullscreen": false,
         "fileDropEnabled": false,
-        "visible": true
+        "visible": false
       }
     ],
     "systemTray": {
@@ -73,41 +73,6 @@
     },
     "security": {
       "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
-    },
-    "cli": {
-      "description": "Lity CLI (not working yet)",
-      "longDescription": null,
-      "beforeHelp": null,
-      "afterHelp": null,
-      "args": [
-        {
-          "short": "s",
-          "name": "server",
-          "takesValue": true,
-          "description": "Server Address"
-        },
-        {
-          "short": "t",
-          "name": "token",
-          "takesValue": true,
-          "description": "Server Token"
-        },
-        {
-          "short": "v",
-          "name": "verbose",
-          "multipleOccurrences": true,
-          "description": "Verbosity level"
-        }
-      ],
-      "subcommands": {
-        "prune": {
-          "description": "Delete all local data",
-          "longDescription": null,
-          "beforeHelp": null,
-          "afterHelp": null,
-          "subcommands": null
-        }
-      }
     }
   }
 }
