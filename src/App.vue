@@ -6,6 +6,7 @@
 <script setup lang="ts">
 // import AppReloadPrompt from "./components/AppMobileReloadPrompt.vue";
 // import "@benrbray/prosemirror-math/style/math.css";
+// old
 import "remixicon/fonts/remixicon.css";
 import "katex/dist/katex.min.css";
 </script>
