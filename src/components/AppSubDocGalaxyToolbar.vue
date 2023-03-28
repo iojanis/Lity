@@ -120,7 +120,7 @@
           }"
           @click="emit('linkNodes')"
         >
-          <i class="ri-share-fill text-2xl" />
+          <i :class="{'animate-pulse text-blue-500 dark:text-blue-500': props.linkingNodes,}" class="ri-share-fill text-inherit text-2xl" />
         </button>
         <button
           class="tooltip relative -ml-px inline-flex items-center p-1 text-sm font-medium text-black opacity-70 hover:opacity-100 focus:z-10 focus:outline-none dark:text-white"
@@ -144,7 +144,7 @@
           v-tippy="{ content: 'Delete  <kbd>'+osKeySymbol()+' + Backspace</kbd>', placement: 'bottom' }"
           @click="emit('deleteNode')"
         >
-          <i class="ri-delete-bin-fill text-2xl" />
+          <i :class="{'animate-pulse text-red-500 dark:text-red-500': props.deletingNodes,}" class="ri-delete-bin-fill text-2xl" />
         </button>
         <button
           :class="{
@@ -157,7 +157,7 @@
           v-tippy="{ content: 'Unlink Nodes  <kbd>'+osKeySymbol()+' + L</kbd>', placement: 'bottom' }"
           @click="emit('unlinkNodes')"
         >
-          <i class="ri-scissors-fill text-2xl" />
+          <i  :class="{'animate-pulse text-yellow-500 dark:text-yellow-500': props.unlinkingNodes,}" class="ri-scissors-fill text-2xl" />
         </button>
 
         <span
