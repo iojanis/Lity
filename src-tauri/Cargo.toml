@@ -1,6 +1,6 @@
 [package]
 name = "Lity"
-version = "1.6.0"
+version = "1.6.1"
 description = "Revisit your thoughts in sync."
 authors = [ "Janis Jendraß" ]
 license = ""

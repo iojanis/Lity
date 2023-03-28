@@ -1,7 +1,7 @@
 {
   "package": {
     "productName": "Lity",
-    "version": "1.6.0"
+    "version": "1.6.1"
   },
   "build": {
     "distDir": "../dist",
@@ -48,7 +48,7 @@
       "endpoints": [
         "https://files.janis.io/v/cc.lity.app/versions.json"
       ],
-      "dialog": true,
+      "dialog": false,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI4RDgxQ0I3Mzg0Mzc0NEEKUldSS2RFTTR0eHpZS0lhSFFsRXlyZnZPYXprR0s1Sm9KWUNQWjRZTmV2czR3dVkwS1JCZVMxbU4K"
     },
     "allowlist": {

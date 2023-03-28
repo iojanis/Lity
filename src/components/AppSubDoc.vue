@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden">
     <div
-      style="bottom: 130px"
+      style="bottom: 160px"
       class="nav-bar fixed z-50 m-0 mt-0 ml-2 flex"
       :class="{ hidden: nodeId }"
     >
